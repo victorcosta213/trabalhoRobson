@@ -16,9 +16,15 @@ import java.util.logging.Logger;
 public class TrabalhoRobson {
     public static final Logger logger = Logger.getLogger(TrabalhoRobson.class.getName());
 
-    public static void main(String[] args) {
-        Funcionario[] funcionarios = leArquivo("caminhoParaArquivoComFuncionariosAqui", 300);
-        mostraListaFunc(funcionarios);
+    public static void main(String[] args) throws IOException {
+        Funcionario[] funcionarios = leArquivo("caminho", 300);
+        //mostraListaFunc(funcionarios);
+
+        FileWriter fw = new FileWriter("caminho");
+        for (int i = 0; i < funcionarios.length; i++) {
+            fw.write(funcionarios[i].linhaDados());
+        }
+        fw.close();
     }
 
     public static Funcionario[] leArquivo(String caminhoParaArquivo, int quantidadeDeFuncionarios) {

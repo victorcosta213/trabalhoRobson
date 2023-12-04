@@ -1,23 +1,23 @@
 package com.mycompany.trabalhorobson;
 
 public class Funcionario {
-  private String cod;
+  private int cod;
   private String cargo;
   private String nome;
-  private String salario;
+  private double salario;
 
   public Funcionario(String cod, String cargo, String nome, String salario) {
-    this.cod = cod;
+    this.cod = Integer.parseInt(cod);
     this.cargo = cargo;
     this.nome = nome.replace("-", " ");
-    this.salario = salario;
+    this.salario = Double.parseDouble(salario);
   }
 
-  public String getCod() {
+  public int getCod() {
     return cod;
   }
 
-  public void setCod(String cod) {
+  public void setCod(int cod) {
     this.cod = cod;
   }
 
@@ -37,11 +37,11 @@ public class Funcionario {
     this.nome = nome;
   }
 
-  public String getSalario() {
+  public double getSalario() {
     return salario;
   }
 
-  public void setSalario(String salario) {
+  public void setSalario(double salario) {
     this.salario = salario;
   }
 
@@ -53,4 +53,10 @@ public class Funcionario {
     System.out.println("| -----------------------------------");
     System.out.println("|");
   }
+
+  public String linhaDados(){
+    String nomeHifen = this.nome.replace(" ","-");
+    return ((this.cod)+" "+nomeHifen+" "+this.cargo+" "+this.salario+"\n");
+  }
 }
+
