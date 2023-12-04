@@ -7,7 +7,8 @@ public class Funcionario {
   private double salario;
 
   public Funcionario(String cod, String cargo, String nome, String salario) {
-    this.cod = Integer.parseInt(cod);
+    String codClear = cod.replaceAll("\\D","");
+    this.cod = Integer.parseInt(codClear);
     this.cargo = cargo;
     this.nome = nome.replace("-", " ");
     this.salario = Double.parseDouble(salario);
